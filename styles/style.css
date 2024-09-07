@@ -72,6 +72,7 @@ fieldset {
 .result__video {
   width: 100%;
   height: 387px;
+  object-fit: cover;
 }
 
 .search-form {
@@ -83,7 +84,7 @@ fieldset {
 
 .search-form__fieldset-title {
   margin-bottom: 4px;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 21.6px;
@@ -97,14 +98,14 @@ fieldset {
 
 .search-form__textfield {
   -webkit-appearance: none;
-	-moz-appearance: none;
-	appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   width: 225px;
   height: 27px;
   background-color: transparent;
   border: none;
-  border-top: solid 1px white;
-  border-bottom: solid 1px white;
+  border-top: solid 1px #fff;
+  border-bottom: solid 1px #fff;
   font-family: inherit;
   font-size: inherit;
   font-weight: inherit;
@@ -117,16 +118,16 @@ fieldset {
 }
 
 .search-form__textfield:focus-visible {
-  outline: 1px solid white;
+  outline: 1px solid #fff;
   outline-offset: 2px;
 }
 
 .search-form__textfield:active {
-  outline: none;
-  border: solid 1px white;
+  outline: solid 1px #fff;
+  outline-offset: -1px;
 }
 
-.search-form__label:has(input[type='checkbox']) {
+.search-form__label:has(.search-form__pseudo-checkbox) {
   display: grid;
   grid-template-columns: auto auto;
   align-items: center;
@@ -142,7 +143,7 @@ fieldset {
 }
 
 .search-form__label:has(input[type='checkbox']:focus-visible) {
-  outline: solid 1px white;
+  outline: solid 1px #fff;
   outline-offset: 2px;
 }
 
@@ -156,7 +157,7 @@ fieldset {
 .search-form__pseudo-checkbox {
   height: 15px;
   width: 15px;
-  outline: solid 1px white;
+  outline: solid 1px #fff;
   outline-offset: 1px;
 }
 
@@ -165,25 +166,25 @@ fieldset {
 }
 
 input[type='checkbox']:checked + span {
-  background-color: white;
+  background-color: #fff;
   background-position: center;
   background-size: 15px;
 }
 
 input[type='checkbox']:focus-visible + span {
-  outline: solid 1px white;
+  outline: solid 1px #fff;
 }
 
 input[type='checkbox']:active + span {
-  background-color: white;
+  background-color: #fff;
 }
 
 .button {
-  border: solid 1px white;
+  border: solid 1px #fff;
   background-color: transparent;
   padding: 0 6px 0 6px;
-  color: white;
-  font-family: "Fira Sans Condensed";
+  color: #fff;
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 700;
   line-height: 21.6px;
@@ -195,7 +196,7 @@ input[type='checkbox']:active + span {
 }
 
 .button:focus-visible {
-  outline: solid 1px white;
+  outline: solid 1px #fff;
   outline-offset: 2px;
 }
 
@@ -226,7 +227,7 @@ input[type='checkbox']:active + span {
 
 .title {
   margin-top: 2px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 75px;
   font-weight: 700;
   line-height: 70.5px;
@@ -237,17 +238,11 @@ input[type='checkbox']:active + span {
   color: #545050;
 }
 
-
 .content__list {
   width: 100%;
   height: 298px;
   overflow-y: scroll;
   position: relative;
-  overflow-x: hidden;
-}
-
-.content__list::-webkit-scrollbar {
-  display: none;
 }
 
 .content__list-item:not(:last-child) {
@@ -269,7 +264,8 @@ input[type='checkbox']:active + span {
 
 .content__list-item:has(.content__card-link:focus-visible) {
   appearance: none;
-  border: solid 1px white;
+  outline: solid 1px #fff;
+  outline-offset: -1px;
 }
 
 .content__list-item:has(.content__card-link:active) {
@@ -281,6 +277,9 @@ input[type='checkbox']:active + span {
   text-underline-offset: 2px;
 }
 
+.content__list-item:has(.content__card-link_current) {
+  background-color: #545050;
+}
 
 .content__video-card {
   display: grid;
@@ -292,19 +291,25 @@ input[type='checkbox']:active + span {
   color: #fff
 }
 
+.content__video-card-description-container {
+  max-width: 190px;
+}
+
 .content__video-card-title {
   margin-top: 4px;
   margin-bottom: 4px;
-  font-family: Oswald;
+  font-family: Oswald, sans-serif;
   font-size: 30px;
   font-weight: 700;
   line-height: 30px;
   text-transform: uppercase;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .content__video-card-description {
-  max-width: 140px;
-  font-family: "Fira Sans Condensed";
+  font-family: "Fira Sans Condensed", sans-serif;
   font-size: 18px;
   font-weight: 400;
   line-height: 16.2px;
